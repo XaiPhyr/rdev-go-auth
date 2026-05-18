@@ -1,4 +1,4 @@
-package dto
+package auth
 
 type LoginRequest struct {
 	Username string `json:"username" binding:"required"`

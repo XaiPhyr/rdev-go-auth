@@ -1,8 +1,9 @@
-package data
+package users
 
 import (
 	"context"
 
+	"github.com/XaiPhyr/rdev-go-auth/internal/shared/models"
 	"github.com/uptrace/bun"
 )
 
@@ -49,8 +50,8 @@ func (r *UserRepository) CheckUserPermission(ctx context.Context, userID int64, 
 	return allPerms, nil
 }
 
-func (r *UserRepository) GetUserByUsernameOrEmail(ctx context.Context, identifier string) (*User, error) {
-	var user = new(User)
+func (r *UserRepository) GetUserByUsernameOrEmail(ctx context.Context, identifier string) (*models.User, error) {
+	var user = new(models.User)
 
 	err := r.db.NewSelect().
 		Model(user).

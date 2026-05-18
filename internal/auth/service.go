@@ -1,4 +1,4 @@
-package service
+package auth
 
 import (
 	"context"
@@ -8,19 +8,19 @@ import (
 	"time"
 
 	"github.com/XaiPhyr/rdev-go-auth/internal/config"
-	"github.com/XaiPhyr/rdev-go-auth/internal/data"
+	"github.com/XaiPhyr/rdev-go-auth/internal/users"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/redis/go-redis/v9"
 	"golang.org/x/crypto/bcrypt"
 )
 
 type AuthService struct {
-	r     *data.UserRepository
+	r     *users.UserRepository
 	redis *redis.Client
 	c     *config.Config
 }
 
-func NewAuthService(r *data.UserRepository, c *config.Config) *AuthService {
+func NewAuthService(r *users.UserRepository, c *config.Config) *AuthService {
 	return &AuthService{r: r, c: c}
 }
 
